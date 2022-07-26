@@ -77,25 +77,43 @@ class InformationView(View):
         
         movieinfo  = MovieInfo.objects.get(id=movieinfo_id)
         
+        data = {}
         
-        results = {
-        'movieimage' : [movieimage.image_url 
-            for movieimage in movieinfo.movieimage_set.all()],
-        'name' : movieinfo.name,             
-        'original_name' : movieinfo.original_name,
-        'rating' : movieinfo.rating,
-        'genre' : movieinfo.genre,
-        'running_time' : movieinfo.running_time,
-        'director' : movieinfo.director,
-        'cast' : movieinfo.cast,
-        'synopsis' : movieinfo.synopsis,
-        'like' : movieinfo.like,
-        'dislike' : movieinfo.dislike,
-        'teaser' : movieinfo.movievideo.teaser,
-        'shorts' : movieinfo.movievideo.shorts,
-        'trailer' : movieinfo.movievideo.trailer
-        }    
-        return JsonResponse({"movieinfo" : results}, status=200)    
+        data["movieimage"] =  [movieimage.image_url 
+             for movieimage in movieinfo.movieimage_set.all()],
+        data["name"] = movieinfo.name,
+        data["original_name"] = movieinfo.original_name,
+        data["rating"] = movieinfo.rating,
+        data["genre"] = movieinfo.genre,
+        data["running_time"] = movieinfo.running_time,
+        data["director"] = movieinfo.director,
+        data["cast"] = movieinfo.cast,
+        data["synopsis"] = movieinfo.synopsis,
+        data["like"] = movieinfo.like,
+        data["dislike"] = movieinfo.dislike,
+        data["teaser"] = movieinfo.movievideo.teaser,
+        data["shorts"] = movieinfo.movievideo.shorts,
+        data["trailer"] = movieinfo.movievideo.trailer
+        
+        
+        # results = {
+        # 'movieimage' : [movieimage.image_url 
+        #     for movieimage in movieinfo.movieimage_set.all()],
+        # 'name' : movieinfo.name,             
+        # 'original_name' : movieinfo.original_name,
+        # 'rating' : movieinfo.rating,
+        # 'genre' : movieinfo.genre,
+        # 'running_time' : movieinfo.running_time,
+        # 'director' : movieinfo.director,
+        # 'cast' : movieinfo.cast,
+        # 'synopsis' : movieinfo.synopsis,
+        # 'like' : movieinfo.like,
+        # 'dislike' : movieinfo.dislike,
+        # 'teaser' : movieinfo.movievideo.teaser,
+        # 'shorts' : movieinfo.movievideo.shorts,
+        # 'trailer' : movieinfo.movievideo.trailer
+        # }    
+        return JsonResponse({"movieinfo" : data}, status=200)    
     
 
 
