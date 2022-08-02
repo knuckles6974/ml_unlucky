@@ -130,7 +130,7 @@ class MovieRepairView(View):
         
         
         
-    def put(self, request, movieinfo_id):
+    def patch(self, request, movieinfo_id):
         try:                
            movieinfos = MovieInfo.objects.get(id=movieinfo_id)
            data = json.loads(request.body)

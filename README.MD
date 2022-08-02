@@ -188,7 +188,7 @@ $ python manage.py runserver
 }
 ```
 
-## 4) . PUT(영화정보수정)
+## 4) . PATCH(영화정보수정)
 
 #### Request
 
