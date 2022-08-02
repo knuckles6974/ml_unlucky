@@ -192,7 +192,7 @@ $ python manage.py runserver
 
 #### Request
 
-`PUT 127.0.0.1/movies/3`
+`PATCH 127.0.0.1/movies/3`
 
 #### Response
 
